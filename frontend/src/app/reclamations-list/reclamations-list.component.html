@@ -1,0 +1,56 @@
+<table class="table">
+  <thead class="thead-dark text-center">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nom Client</th>
+      <th scope="col">Cin</th>
+      <th scope="col">Tel</th>
+      <th scope="col">Email</th>
+      <th scope="col">Reclamation</th>
+      <th scope="col">Date</th>
+      <th scope="col">Status</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody class="text-center">
+    <tr *ngFor="let data of reclamations ; let i = index ;">
+      <th scope="row">{{i}}</th>
+      <td>{{data}}</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+      <td>Mark</td>
+      <td><img [src]="iconTraite" alt="Edit" /></td>
+      <td>
+        <a [routerLink]="['/edit-reclamation/:id']">
+          <img [src]="imgPen" alt="Edit" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>00AA86</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+      <td>Jacob</td>
+      <td><img [src]="iconAttente" alt="Edit" /></td>
+      <td>
+        <a [routerLink]="['/edit-reclamation/:id']">
+          <img [src]="imgPen" alt="Edit" />
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+      <td>Larry</td>
+      <td><img [src]="iconReject" alt="Edit" /></td>
+      <td>
+        <a [routerLink]="['/edit-reclamation/:id']">
+          <img [src]="imgPen" alt="Edit" />
+        </a>
+      </td>
+    </tr>
+  </tbody>
+</table>

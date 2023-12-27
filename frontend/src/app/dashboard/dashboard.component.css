@@ -1,0 +1,22 @@
+.logo {
+  width: 200px;
+  margin: 13px;
+}
+.sidebar {
+    /* padding: auto; */
+  height: 640px;
+}
+.container-dashboard {
+  display: flex;
+}
+.contenu {
+  flex: 4;
+  margin: 2%;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  width: auto;
+  border-radius: 10px;
+  align-items: center;
+  
+}
