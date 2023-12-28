@@ -9,3 +9,4 @@ export class EditReclamationComponent {
   logoUrl = "assets/images/logo.png";
 
 }
+
