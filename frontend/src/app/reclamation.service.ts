@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
@@ -11,8 +11,9 @@ export class ReclamationService {
 
   constructor(private http: HttpClient) { } 
 
-  getAllReclam() {
-    return this.http.get<any>(this.getReclamationsUrl);
+  getAllReclam(): Observable<any> {
+    var header = { headers: new HttpHeaders() }
+    return this.http.get<any>(this.getReclamationsUrl,header);
   }
 
   getOneReclam(id: String) {

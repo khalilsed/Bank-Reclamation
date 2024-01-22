@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./stat-card.component.css']
 })
 export class StatCardComponent {
-
+//  document.getElementById(Trait).innerHTML()
 }

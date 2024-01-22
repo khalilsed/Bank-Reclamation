@@ -1,4 +1,5 @@
 .logo {
+<<<<<<< HEAD
     width: 200px;
     margin: 13px;
   }
@@ -114,3 +115,27 @@
     
   }
   
+=======
+  width: 200px;
+  margin: 13px;
+}
+.sidebar {
+    /* padding: auto; */
+  height: auto;
+}
+.container-dashboard {
+  display: flex;
+}
+.contenu {
+  flex: 4;
+  margin: 2%;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
+  padding: 25px;
+  width: auto;
+  height: 600px;
+  border-radius: 10px;
+  align-items: center;
+  
+}
+>>>>>>> b2a7bf1f98bdd47dfc889ad399c1cde0bc61ec88
