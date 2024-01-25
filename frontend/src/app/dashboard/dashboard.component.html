@@ -26,10 +26,13 @@
         </h6>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link text-white" href="#"> Reclamation En Attente </a>
+            <a class="nav-link text-white" [routerLink]="['/reclamationEnAttente']"> Reclamations En Attentes </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#"> Reclamation Traité </a>
+            <a class="nav-link text-white" [routerLink]="['/reclamationTraite']"> Reclamations Traités </a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-white" [routerLink]="['/reclamationRejete']"> Reclamations Rejetés </a>
           </li>
         </ul>
 

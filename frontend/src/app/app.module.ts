@@ -10,6 +10,9 @@ import { EditReclamationComponent } from './edit-reclamation/edit-reclamation.co
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { ContenuComponent } from './contenu/contenu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { ReclamationTraiteComponent } from './reclamation-traite/reclamation-traite.component';
+import { ReclationRejeteComponent } from './reclation-rejete/reclation-rejete.component';
+import { ReclamationAttenteComponent } from './reclamation-attente/reclamation-attente.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +21,10 @@ import { HttpClientModule } from '@angular/common/http';
     ReclamationsListComponent,
     EditReclamationComponent,
     StatCardComponent,
-    ContenuComponent
+    ContenuComponent,
+    ReclamationTraiteComponent,
+    ReclationRejeteComponent,
+    ReclamationAttenteComponent
   ],
   imports: [
     BrowserModule,

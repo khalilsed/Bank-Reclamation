@@ -24,13 +24,18 @@
       <td *ngIf="data.status == 'T'"><img [src]="iconTraite" alt="Edit" /></td>
       <td *ngIf="data.status == 'R'"><img [src]="iconReject" alt="Edit" /></td>
       <td *ngIf="data.status == 'A'"><img [src]="iconAttente" alt="Edit" /></td>
-      <!-- <td>{{ data.status }}</td> -->
-
-      <!-- <td><img [src]="iconTraite" alt="Edit" /></td> -->
       <td>
-        <a [routerLink]="['/edit-reclamation/:id']">
+        <!-- <a  [routerLink]="['/edit-reclamation/:id']">
+          <img [src]="imgPen" alt="Edit" />
+        </a> -->
+
+        <a  [routerLink]="['/edit-reclamation',data._id]">
           <img [src]="imgPen" alt="Edit" />
         </a>
+        
+        <!-- <a (click)="selectItem('65ad04b209f42ee8bf221c6a')">
+          <img [src]="imgPen" alt="Edit" />
+        </a> -->
       </td>
     </tr>
   </tbody>

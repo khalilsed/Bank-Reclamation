@@ -38,11 +38,98 @@ app.get('/Reclamations', (req, res) => {
     .forEach(reclam => Reclamations.push(reclam))
     .then(() => {
       res.status(200).json(Reclamations)
+
     })
     .catch(() => {
       res.status(500).json({error: 'Could not fetch the documents'})
     })
 })
+
+
+//compter reclamation traités 
+app.get('/ReclamationsTraite', (req, res) => {
+  let treatedReclamations = [];
+
+  db.collection('Reclamations')
+    .find({ status: 'T' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .forEach(reclam => treatedReclamations.push(reclam))
+    .then(() => {
+      res.status(200).json(treatedReclamations);
+    })
+    .catch(() => {
+      res.status(500).json({ error: 'Could not fetch the treated reclamations' });
+    });
+});
+
+app.get('/Reclamations/countTreated', (req, res) => {
+  db.collection('Reclamations')
+    .countDocuments({ status: 'T' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .then(count => {
+      res.status(200).json({ count });
+    })
+    .catch(err => {
+      res.status(500).json({ error: 'Could not fetch the count of treated reclamations' });
+    });
+});
+
+
+//compter reclamation en Attente 
+app.get('/ReclamationsEnAttente', (req, res) => {
+  let AttenteReclamations = [];
+
+  db.collection('Reclamations')
+    .find({ status: 'A' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .forEach(reclam => AttenteReclamations.push(reclam))
+    .then(() => {
+      res.status(200).json(AttenteReclamations);
+    })
+    .catch(() => {
+      res.status(500).json({ error: 'Could not fetch the Attente reclamations' });
+    });
+});
+
+app.get('/Reclamations/countAttente', (req, res) => {
+  db.collection('Reclamations')
+    .countDocuments({ status: 'A' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .then(count => {
+      res.status(200).json({ count });
+    })
+    .catch(err => {
+      res.status(500).json({ error: 'Could not fetch the count of Attente reclamations' });
+    });
+});
+
+
+//compter reclamation Rejetes 
+app.get('/ReclamationsRejete', (req, res) => {
+  let RejectedReclamations = [];
+
+  db.collection('Reclamations')
+    .find({ status: 'R' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .forEach(reclam => RejectedReclamations.push(reclam))
+    .then(() => {
+      res.status(200).json(RejectedReclamations);
+    })
+    .catch(() => {
+      res.status(500).json({ error: 'Could not fetch the Rejected reclamations' });
+    });
+});
+
+app.get('/Reclamations/countRejected', (req, res) => {
+  db.collection('Reclamations')
+    .countDocuments({ status: 'R' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .then(count => {
+      res.status(200).json({ count });
+    })
+    .catch(err => {
+      res.status(500).json({ error: 'Could not fetch the count of Rejected reclamations' });
+    });
+});
+
+
+
+
+
 
 app.get('/Reclamations/:id', (req, res) => {
   if (ObjectId.isValid(req.params.id)) {

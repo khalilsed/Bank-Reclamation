@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ReclamationService } from '../reclamation.service';
 import { Reclam } from './reclam';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reclamations-list',
@@ -17,7 +18,7 @@ export class ReclamationsListComponent implements OnInit{
    reclamationsList : Reclam [] = [];
   reclamations = ["khalil","sed",52108635];
 
-  constructor(private reclamationService : ReclamationService) {}
+  constructor(private reclamationService : ReclamationService, private router: Router) {}
   ngOnInit(): void {
     // this.reclamationService.getAllReclam().subscribe(
     //   result=>{
@@ -37,8 +38,12 @@ export class ReclamationsListComponent implements OnInit{
       console.log(this.reclamationsList,'reclamationsList');
 
     })
+    
 
   }
+  // selectItem(id: String): void {
+  //   this.router.navigate(['/edit-reclamation', id]);
+  // }
   }
 
 

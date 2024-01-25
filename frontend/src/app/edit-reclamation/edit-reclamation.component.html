@@ -17,7 +17,8 @@
 
 <div class="container-fluid">
   <div class="row container-dashboard">
-     <nav class="col-md-2 bg-dark sidebar "> <!--position-fixed -->
+    <nav class="col-md-2 bg-dark sidebar">
+      <!--position-fixed -->
       <div class="sidebar-sticky position-fixed">
         <h6
           class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-3 text-muted"
@@ -41,7 +42,106 @@
       </div>
     </nav>
     <div class="contenu">
-      
+      <div>
+        <a
+          class="nav-link"
+          [routerLink]="['/']"
+          style="color: black; font-weight: bold"
+          >Back To Home</a
+        >
+        <h4 class="border-bottom great-green-giant">Edit Reclamation</h4>
+      </div>
+      <div class="">
+        <div class="row">
+          <div class="col-md-2">
+            <label for="Id Client ">Nom Client </label>
+            <input
+              type="text"
+              class="bg-light form-control"
+              placeholder="{{ reclamationOne.nomClt }}"
+              readonly
+            />
+          </div>
+          <div class="col-md-2 pt-md-0 pt-3">
+            <label for="Prenom">Tel </label>
+            <input
+              type="text"
+              class="bg-light form-control"
+              placeholder="{{ reclamationOne.telClt }}"
+              readonly
+            />
+          </div>
+          <div class="col-md-2 pt-md-0 pt-5">
+            <label for="Cin">Email </label>
+            <input
+              type="text"
+              class="bg-light form-control"
+              placeholder="{{ reclamationOne.emailClt }}"
+              readonly
+            />
+          </div>
+          <!-- <div class="col-md-2 pt-md-0 pr-5 ">
+
+              <label for="Status" >Status</label>
+              <select name="Status" class="stat" id="Status" class="bg-light form-control wide-select">
+                <option value="Reclamation Traité" >Reclamation Traité</option>
+                <option value="Reclamation Rejeté">Reclamation Rejeté</option>
+                <option value="Reclamation En Attente">Reclamation En Attente</option>
+              </select>
+            </div> -->
+          <div class="col-md-2 pt-md-0 pr-5">
+            <label>Status</label>
+            <div class="row">
+              <div>
+                <input
+                  type="radio"
+                  name="Status"
+                  value="Reclamation Traité"
+                  id="reclamationTraite"
+                />
+                <label for="reclamationTraite">Reclamation Traité</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  name="Status"
+                  value="Reclamation Rejeté"
+                  id="reclamationRejete"
+                />
+                <label for="reclamationRejete">Reclamation Rejeté</label>
+              </div>
+
+              <div>
+                <input
+                  type="radio"
+                  name="Status"
+                  value="Reclamation En Attente"
+                  id="reclamationEnAttente"
+                />
+                <label for="reclamationEnAttente">Reclamation En Attente</label>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row py-2">
+        <div class="col-md-6">
+          <label for="Reclamation	">Reclamation </label>
+          <input
+            type="text"
+            class="bg-light form-control height"
+            placeholder="{{ reclamationOne.description }}"
+            readonly
+          />
+        </div>
+      </div>
+
+      <div class="py-3 pb-10 border-bottom">
+        <button class="btn button verif mr-3">Save Changes</button>
+        <button class="btn button danger">Cancel</button>
+      </div>
     </div>
   </div>
 </div>
