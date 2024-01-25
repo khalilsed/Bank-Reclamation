@@ -1,1 +1,47 @@
-<p>login works!</p>
+<!-- login.component.html -->
+
+<div class="wrapper">
+    <div class="container main">
+      <div class="row">
+        <div class="col-md-6 side-image">
+          <!-- Image and text here -->
+        </div>
+        <div class="col-md-6 right">
+          <div class="input-box">
+            <h2>Sign in</h2>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="input-field">
+                <input
+                  formControlName="email"
+                  type="text"
+                  class="input"
+                  id="email"
+                  required
+                  autocomplete="off"
+                />
+                <label for="email">Email</label>
+                <span *ngIf="loginForm.get('email')">Email invalide</span>
+              </div>
+              <div class="input-field">
+                <input
+                  formControlName="password"
+                  type="password"
+                  class="input"
+                  id="pass"
+                  required
+                />
+                <label for="pass">Password</label>
+              </div>
+              <div class="remember">
+                <label><input type="checkbox">Remember Me</label>
+              </div>
+              <div class="input-field">
+                <input type="submit" class="submit" value="Login" />
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  

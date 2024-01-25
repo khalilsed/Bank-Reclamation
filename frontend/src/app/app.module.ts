@@ -10,6 +10,9 @@ import { EditReclamationComponent } from './edit-reclamation/edit-reclamation.co
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { ContenuComponent } from './contenu/contenu.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { authService } from './service/login-service.service'; // Assurez-vous d'ajuster le chemin
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +26,9 @@ import { HttpClientModule } from '@angular/common/http';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

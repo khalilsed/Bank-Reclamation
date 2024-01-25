@@ -1,56 +1,57 @@
-const express = require('express')
-const { getDb, connectToDb } = require('./db')
-const { ObjectId } = require('mongodb')
+//const express = require('express')
+//const mongoose = require('mongoose');
+//const { getDb, connectToDb } = require('./db')
+//const { ObjectId } = require('mongodb')
 
 // init app & middleware
-const app = express()
-app.use(express.json())
+//const app = express()
+//app.use(express.json())
 
 // db connection
-let db
+//let db
 
-connectToDb((err) => {
-  if(!err){
-    app.listen('3000', () => {
-      console.log('app listening on port 3000')
-    })
-    db = getDb()
-  }
-})
+//connectToDb((err) => {
+  //if(!err){
+    //app.listen('3000', () => {
+      //console.log('app listening on port 3000')
+   // })
+    //db = getDb()
+  //}
+//})
 
 // routes
-app.get('/Reclamations', (req, res) => {
-  let Reclamations = []
+//app.get('/Reclamations', (req, res) => {
+  //let Reclamations = []
 
-  db.collection('Reclamations')
-    .find()
-    .forEach(reclam => Reclamations.push(reclam))
-    .then(() => {
-      res.status(200).json(Reclamations)
-    })
-    .catch(() => {
-      res.status(500).json({error: 'Could not fetch the documents'})
-    })
-})
+  //db.collection('Reclamations')
+    //.find()
+    //.forEach(reclam => Reclamations.push(reclam))
+    //.then(() => {
+      //res.status(200).json(Reclamations)
+    //})
+    //.catch(() => {
+      //res.status(500).json({error: 'Could not fetch the documents'})
+    //})
+//})
 
-app.get('/Reclamations/:id', (req, res) => {
+//app.get('/Reclamations/:id', (req, res) => {
 
-  if (ObjectId.isValid(req.params.id)) {
+  //if (ObjectId.isValid(req.params.id)) {
 
-    db.collection('Reclamations')
-      .findOne({_id: new ObjectId(req.params.id)})
-      .then(doc => {
-        res.status(200).json(doc)
-      })
-      .catch(err => {
-        res.status(500).json({error: 'Could not fetch the document'})
-      })
+    //db.collection('Reclamations')
+      //.findOne({_id: new ObjectId(req.params.id)})
+      //.then(doc => {
+        //res.status(200).json(doc)
+      //})
+      //.catch(err => {
+        //res.status(500).json({error: 'Could not fetch the document'})
+      //})
       
-  } else {
-    res.status(500).json({error: 'Could not fetch the document'})
-  }
+  //} else {
+    //res.status(500).json({error: 'Could not fetch the document'})
+  //}
 
-})
+//})
 // --------------------------------------------------------------------------AJOUT D'UNE RECLAMATIONS !
 // app.post('/Reclamations', (req, res) => {
 //   const reclam = req.body

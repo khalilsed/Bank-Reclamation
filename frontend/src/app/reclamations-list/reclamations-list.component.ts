@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ReclamationService } from '../reclamation.service';
+import { ReclamationService } from '../service/reclamation.service';
 
 @Component({
   selector: 'app-reclamations-list',
