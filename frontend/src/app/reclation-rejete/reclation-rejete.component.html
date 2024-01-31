@@ -1,90 +1,87 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-    <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-      <img [src]="logoUrl" alt="" class="logo" />
-    </a>
-    <input
-      class="form-control form-control-dark"
-      type="text"
-      placeholder="Search"
-      aria-label="Search"
-    />
-    <ul class="navbar-nav px-3">
-      <li class="nav-item text-nowrap">
-        <a class="nav-link text-danger" [routerLink]="['/login']">Logout</a>
-      </li>
-    </ul>
-  </nav>
-  
-  <div class="container-fluid">
-    <div class="row container-dashboard">
-      <nav class="col-md-2 bg-dark sidebar">
-        <!--position-fixed -->
-        <div class="sidebar-sticky position-fixed">
-          <h6
-            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-3 text-muted"
-          >
-            Reclamation Dashboard
-          </h6>
-          <ul class="nav flex-column">
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                [routerLink]="['/reclamationEnAttente']"
-              >
-                Reclamations En Attentes
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                [routerLink]="['/reclamationTraite']"
-              >
-                Reclamations Traités
-              </a>
-            </li>
-            <li class="nav-item">
-              <a
-                class="nav-link text-white"
-                [routerLink]="['/reclamationRejete']"
-              >
-                Reclamations Rejetés
-              </a>
-            </li>
-          </ul>
-  
-          <h6
-            class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-1 text-muted"
-          >
-            Saved reports
-          </h6>
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0" >
+    <img [src]="logoUrl" alt="" class="logo" [routerLink]="['/home']"/>
+  </a>
+  <input
+    class="form-control form-control-dark"
+    type="text"
+    placeholder="Chercher"
+    aria-label="Chercher"
+  />
+
+  <ul class="navbar-nav px-3">
+    <li class="nav-item text-nowrap"></li>
+  </ul>
+</nav>
+
+<div class="container-fluid">
+  <div class="row container-dashboard">
+    <nav class="col-md-2 bg-dark sidebar">
+      <!--position-fixed -->
+      <div class="sidebar-sticky position-fixed">
+        <h6
+          class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-3 text-muted"
+        >
+          Reclamation Dashboard
+        </h6>
+        <ul class="nav flex-column">
+          <li class="nav-item ">
+            <a
+              class="nav-link text-white itemDash"
+              [routerLink]="['/reclamationEnAttente']"
+            >
+              Reclamations En Attentes
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white itemDash"
+              [routerLink]="['/reclamationTraite']"
+            >
+              Reclamations Traités
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white itemselected"
+              [routerLink]="['/reclamationRejete']"
+            >
+              Reclamations Rejetés
+            </a>
+          </li>
+        </ul>
+        <div class="logout row flex-row align-items-center ">
+          <img [src]="logoutUrl" alt="" class="logoutlogo" />
+          <a class=" nav-link"   [routerLink]="['']">Déconnexion</a>
         </div>
-      </nav>
-      <div class="contenu">
-        <table class="table">
-          <thead class="thead-dark text-center">
-            <tr>
-              <th scope="col">#</th>
-              <th scope="col">Nom Client</th>
-              <th scope="col">Cin</th>
-              <th scope="col">Tel</th>
-              <th scope="col">Email</th>
-              <th scope="col">Reclamation</th>
-              <th scope="col">Date</th>
-            </tr>
-          </thead>
-          <tbody class="text-center">
-            <tr *ngFor="let data of reclamationsList; let i = index">
-              <td>{{ i }}</td>
-              <td>{{ data.nomClt }}</td>
-              <td>{{ data.cinClt }}</td>
-              <td>{{ data.telClt }}</td>
-              <td>{{ data.emailClt }}</td>
-              <td>{{ data.type }}</td>
-              <td>{{ data.date }}</td>
-            </tr>
-          </tbody>
-        </table>
       </div>
+    </nav>
+
+    <div class="contenu">
+      <table class="table">
+        <thead class="thead-dark text-center">
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Nom Client</th>
+            <th scope="col">Cin</th>
+            <th scope="col">Tel</th>
+            <th scope="col">Email</th>
+            <th scope="col">Reclamation</th>
+            <th scope="col">Date</th>
+          </tr>
+        </thead>
+        <tbody class="text-center">
+          <tr *ngFor="let data of reclamationsList; let i = index">
+            <td>{{ i }}</td>
+            <td>{{ data.nomClt }}</td>
+            <td>{{ data.cinClt }}</td>
+            <td>{{ data.telClt }}</td>
+            <td>{{ data.emailClt }}</td>
+            <td>{{ data.type }}</td>
+            <td>{{ data.date }}</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
   </div>
-  
+</div>

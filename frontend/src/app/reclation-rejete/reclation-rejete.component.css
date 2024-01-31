@@ -1,6 +1,7 @@
 .logo {
     width: 200px;
     margin: 13px;
+    cursor: pointer;
   }
   .sidebar {
       /* padding: auto; */
@@ -21,4 +22,35 @@
     align-items: center;
     
   }
+
+  .itemDash {
+    border-radius: 10px;
+    margin: 5px;
+  }
+  .itemDash:hover{
+    border-radius: 10px;
+    
+    background-color: #04A685;
+  }
+  .itemselected{
+    border-radius: 10px;
+    background-color: #545958;
+    margin: 5px;
+  }
+  .logoutlogo {
+    height: 28px;
+  }
+  .logout {
+    margin: auto;
+    margin-top: 345px;
+    color: black;
+  }
+  .nav-link {
+    color: black;
+  }
+  .logout:hover {
+    border-radius: 10px;
+    background-color: #04a685;
+  }
+  
   

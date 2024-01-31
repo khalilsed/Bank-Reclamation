@@ -1,8 +1,19 @@
 const express = require('express')
+
 const { getDb, connectToDb } = require('./db')
 const { ObjectId } = require('mongodb')
 
 const cors = require('cors');
+//------------------------------------------------
+const mongoose = require ('mongoose');
+const cookieParser = require('cookie-parser')
+//------------------------------------------------
+const { form } = require("./lib/forms");
+const { nodeMailer } = require('./lib/nodeMailer');
+//--------------------------
+
+
+
 const corsOptions ={
     origin:'http://localhost:4200', 
     credentials:true,            //access-control-allow-credentials:true
@@ -16,6 +27,24 @@ app.use(cors(corsOptions));
 app.use(express.json())
 
 //app.use(cors());
+
+
+//------------------------------------------------
+//connexion BD 
+mongoose.connect('mongodb://127.0.0.1:27017/BankRecla');
+const database = mongoose.connection
+
+database.once('open', () => {
+    console.log("database connected !");
+})
+
+database.on('error' , err => console.log(err))
+
+app.use(cookieParser())
+const routes = require('./routes/routes');
+
+app.use('/api',routes)
+//------------------------------------------------
 
 // db connection
 let db
@@ -148,6 +177,43 @@ app.get('/Reclamations/:id', (req, res) => {
   }
 
 })
+
+
+app.put('/update/:id', async (req, res) => {
+  const idReclam = req.params.id;
+
+  try {
+    const objectIdReclam = new ObjectId(idReclam);
+
+    
+    const result = await db.collection('Reclamations').updateOne({ _id: objectIdReclam }, {
+      $set: {
+        // 'nomClt': req.body.nomClt,
+        // 'emailClt': req.body.emailClt,
+        // 'telClt': req.body.telClt,
+        // 'description': req.body.description,
+        'status': req.body.status
+      }
+    });
+
+    if (result.modifiedCount === 1) {
+      res.status(200).json({ success: true, message: 'Réclamation mise à jour avec succès' });
+      //--------------------------
+      const mail = await nodeMailer(req.body.emailClt, "BNA - Reclamation", form());
+      res.send(mail);
+      // //--------------------------
+
+    } else {
+      res.status(404).json({ success: false, message: 'Réclamation non trouvée' });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ success: false, message: 'Erreur lors de la mise à jour de la réclamation' });
+  }
+});
+
+
+
 // --------------------------------------------------------------------------AJOUT D'UNE RECLAMATIONS !
 // app.post('/Reclamations', (req, res) => {
 //   const reclam = req.body

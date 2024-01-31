@@ -1,6 +1,7 @@
 .logo {
   width: 200px;
   margin: 13px;
+  cursor: pointer;
 }
 .sidebar {
   /* padding: auto; */
@@ -16,7 +17,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.8);
   padding: 25px;
   width: auto;
-  height: 600px;
+  /* height: 600px; */
+
   border-radius: 10px;
   align-items: center;
 }
@@ -37,14 +39,14 @@
   padding: ;
 } */
 
-
+/* 
 body {
   font-family: Arial, sans-serif;
-}
+} */
 
 .form-control {
   width: 100%;
-  padding: 12px 20px;
+  /* padding: 12px 20px; */
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
@@ -55,13 +57,18 @@ body {
   background-color: #f8f9fa;
 }
 
+.btn{
+  padding: 14px 20px;
+
+}
+
 button {
   color: white;
   padding: 14px 20px;
-  margin: 8px 30%;
+  margin: 20px 50px;
   border: none;
   cursor: pointer;
-  width: 50%;
+  /* width: 50%; */
   align-self: center;
 }
 
@@ -86,4 +93,33 @@ button:hover {
 .danger:hover {
   background-color: #e20404;
   color: #fff;
+}
+
+.itemDash {
+  border-radius: 10px;
+  margin: 5px;
+}
+.itemDash:hover {
+  border-radius: 10px;
+  background-color: #04a685;
+}
+.itemselected {
+  border-radius: 10px;
+  background-color: #545958;
+  margin: 5px;
+}
+.logoutlogo {
+  height: 28px;
+}
+.logout {
+  margin: auto;
+  margin-top: 345px;
+  color: black;
+}
+.nav-link {
+  color: black;
+}
+.logout:hover {
+  border-radius: 10px;
+  background-color: #04a685;
 }

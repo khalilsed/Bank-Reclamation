@@ -1,6 +1,6 @@
 <nav class="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0">
-  <a class="navbar-brand col-sm-3 col-md-2 mr-0" href="#">
-    <img [src]="logoUrl" alt="" class="logo" />
+  <a class="navbar-brand col-sm-3 col-md-2 mr-0">
+    <img [src]="logoUrl" alt="" class="logo" [routerLink]="['/home']" />
   </a>
   <input
     class="form-control form-control-dark"
@@ -8,10 +8,9 @@
     placeholder="Search"
     aria-label="Search"
   />
+
   <ul class="navbar-nav px-3">
-    <li class="nav-item text-nowrap">
-      <a class="nav-link text-danger" [routerLink]="['/login']">Logout</a>
-    </li>
+    <li class="nav-item text-nowrap"></li>
   </ul>
 </nav>
 
@@ -27,77 +26,117 @@
         </h6>
         <ul class="nav flex-column">
           <li class="nav-item">
-            <a class="nav-link text-white" href="#"> Reclamation En Attente </a>
+            <a
+              class="nav-link text-white itemDash"
+              [routerLink]="['/reclamationEnAttente']"
+            >
+              Reclamations En Attentes
+            </a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-white" href="#"> Reclamation Traité </a>
+            <a
+              class="nav-link text-white itemDash"
+              [routerLink]="['/reclamationTraite']"
+            >
+              Reclamations Traités
+            </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link text-white itemDash"
+              [routerLink]="['/reclamationRejete']"
+            >
+              Reclamations Rejetés
+            </a>
           </li>
         </ul>
-
-        <h6
-          class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-5 mb-1 text-muted"
-        >
-          Saved reports
-        </h6>
+        <div class="logout row flex-row align-items-center">
+          <img [src]="logoutUrl" alt="" class="logoutlogo" />
+          <a class="nav-link" [routerLink]="['']">Logout</a>
+        </div>
       </div>
     </nav>
+
     <div class="contenu">
       <div>
-        <a
+        <!-- <a
           class="nav-link"
-          [routerLink]="['/']"
+          [routerLink]="['/home']"
           style="color: black; font-weight: bold"
           >Back To Home</a
-        >
-        <h4 class="border-bottom great-green-giant">Edit Reclamation</h4>
+        > -->
+        <h4 class="border-bottom great-green-giant m-1  mb-5">Edit Reclamation</h4>
       </div>
       <div class="">
-        <div class="row">
-          <div class="col-md-2">
-            <label for="Id Client ">Nom Client </label>
-            <input
-              type="text"
-              class="bg-light form-control"
-              placeholder="{{ reclamationOne.nomClt }}"
-              readonly
-            />
-          </div>
-          <div class="col-md-2 pt-md-0 pt-3">
-            <label for="Prenom">Tel </label>
-            <input
-              type="text"
-              class="bg-light form-control"
-              placeholder="{{ reclamationOne.telClt }}"
-              readonly
-            />
-          </div>
-          <div class="col-md-2 pt-md-0 pt-5">
-            <label for="Cin">Email </label>
-            <input
-              type="text"
-              class="bg-light form-control"
-              placeholder="{{ reclamationOne.emailClt }}"
-              readonly
-            />
-          </div>
-          <!-- <div class="col-md-2 pt-md-0 pr-5 ">
+        <form [formGroup]="updateReclam" (ngSubmit)="updateReclamation()">
+          <div class="row">
+            <div class="col-md-2">
+              <label for="Id Client ">Nom Client </label>
+              <input
+                type="text"
+                name="nomClt"
+                id="nomClt"
+                class="bg-light form-control"
+                formControlName="nomClt"
+                value="{{ reclamationOne.nomClt }}"
+                readonly
+              />
+            </div>
+            <div class="col-md-2 pt-md-0 pt-3">
+              <label for="Prenom">Tel </label>
+              <input
+                type="text"
+                name="telClt"
+                id="telClt"
+                class="bg-light form-control"
+                formControlName="telClt"
+                value="{{ reclamationOne.telClt }}"
+                readonly
 
-              <label for="Status" >Status</label>
-              <select name="Status" class="stat" id="Status" class="bg-light form-control wide-select">
-                <option value="Reclamation Traité" >Reclamation Traité</option>
-                <option value="Reclamation Rejeté">Reclamation Rejeté</option>
-                <option value="Reclamation En Attente">Reclamation En Attente</option>
-              </select>
-            </div> -->
-          <div class="col-md-2 pt-md-0 pr-5">
+              />
+            </div>
+            <div class="col-md-2 pt-md-0 pt-5">
+              <label for="Cin">Email </label>
+              <input
+                type="text"
+                name="emailClt"
+                id="email"
+                class="bg-light form-control"
+                formControlName="emailClt"
+                value="{{ reclamationOne.emailClt }}"
+                readonly
+
+              />
+            </div>
+            
+
+            <div class="col pr-5">
+              <label for="description	">Reclamation </label>
+              <input
+                type="text"
+                id="description"
+                name="description"
+                class="bg-light form-control height"
+                formControlName="description"
+                value="{{ reclamationOne.description }}"
+                readonly
+
+              />
+            </div>
+          </div>
+
+          <div class="col">
+            <!--<div class="col-md-6"> -->
+
             <label>Status</label>
-            <div class="row">
+            <div class="col">
               <div>
                 <input
                   type="radio"
-                  name="Status"
-                  value="Reclamation Traité"
+                  name="status"
+                  value="T"
                   id="reclamationTraite"
+                  formControlName="status"
                 />
                 <label for="reclamationTraite">Reclamation Traité</label>
               </div>
@@ -105,42 +144,40 @@
               <div>
                 <input
                   type="radio"
-                  name="Status"
-                  value="Reclamation Rejeté"
+                  name="status"
+                  value="R"
                   id="reclamationRejete"
+                  formControlName="status"
                 />
-                <label for="reclamationRejete">Reclamation Rejeté</label>
+                <label for="reclamationRejete">Reclamation Rejete</label>
               </div>
 
               <div>
                 <input
                   type="radio"
-                  name="Status"
-                  value="Reclamation En Attente"
+                  name="status"
+                  value="A"
                   id="reclamationEnAttente"
+                  formControlName="status"
                 />
-                <label for="reclamationEnAttente">Reclamation En Attente</label>
+                <label for="reclamationEnAttente">Reclamation Attente</label>
               </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="row py-2">
-        <div class="col-md-6">
-          <label for="Reclamation	">Reclamation </label>
-          <input
-            type="text"
-            class="bg-light form-control height"
-            placeholder="{{ reclamationOne.description }}"
-            readonly
-          />
-        </div>
+          <div class="py-3 pb-10 border-bottom" class="btn">
+            <input
+              type="submit"
+              value="Enregistrer"
+              class="btn button verif mr-3"
+            />
+          </div>
+        </form>
       </div>
-
-      <div class="py-3 pb-10 border-bottom">
-        <button class="btn button verif mr-3">Save Changes</button>
-        <button class="btn button danger">Cancel</button>
+      <div class="close ">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" [routerLink]="['/home']">
+          Retour
+        </button>
       </div>
     </div>
   </div>

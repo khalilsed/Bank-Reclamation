@@ -8,5 +8,7 @@ import { Component } from '@angular/core';
 export class DashboardComponent {
 
   logoUrl = "assets/images/logo.png";
+  logoutUrl = "assets/images/logout.png";
+
 
 }

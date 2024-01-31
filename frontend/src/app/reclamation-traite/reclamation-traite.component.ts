@@ -9,6 +9,7 @@ import { ReclamationService } from '../reclamation.service';
 })
 export class ReclamationTraiteComponent implements OnInit{
   logoUrl = "assets/images/logo.png";
+  logoutUrl = "assets/images/logout.png";
 
   reclamationsList : Reclam[] = [];
 

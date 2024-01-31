@@ -3,7 +3,7 @@
   margin: 13px;
 }
 .sidebar {
-    /* padding: auto; */
+  /* padding: auto; */
   height: auto;
 }
 .container-dashboard {
@@ -18,5 +18,31 @@
   width: auto;
   border-radius: 10px;
   align-items: center;
-  
+}
+
+/* -----------------------------------ajout design */
+
+.itemDash {
+  border-radius: 10px;
+  margin: 5px;
+}
+
+.itemDash:hover {
+  border-radius: 10px;
+  background-color: #04a685;
+}
+.logoutlogo {
+  height: 28px;
+}
+.logout {
+  margin: auto;
+  margin-top: 345px;
+  color: black;
+}
+.nav-link {
+  color: black;
+}
+.logout:hover {
+  border-radius: 10px;
+  background-color: #04a685;
 }

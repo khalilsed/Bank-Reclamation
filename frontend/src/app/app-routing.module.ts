@@ -7,16 +7,17 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { ReclamationTraiteComponent } from './reclamation-traite/reclamation-traite.component';
 import { ReclamationAttenteComponent } from './reclamation-attente/reclamation-attente.component';
 import { ReclationRejeteComponent } from './reclation-rejete/reclation-rejete.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
-  { path: '', component: DashboardComponent},
-  { path: 'login', component: LoginComponent},
+  { path: '', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
+  { path: 'home', component: DashboardComponent},
   { path: 'reclamations', component: ReclamationsListComponent },
   { path: 'edit-reclamation/:id', component: EditReclamationComponent },
   { path: 'reclamationEnAttente', component: ReclamationAttenteComponent },
   { path: 'reclamationTraite', component: ReclamationTraiteComponent },
   { path: 'reclamationRejete', component: ReclationRejeteComponent }
-
 ];
 
 @NgModule({

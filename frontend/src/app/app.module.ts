@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//toast
+import { ToastrModule, ToastNoAnimation, ToastNoAnimationModule } from 'ngx-toastr';
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
@@ -9,10 +13,15 @@ import { ReclamationsListComponent } from './reclamations-list/reclamations-list
 import { EditReclamationComponent } from './edit-reclamation/edit-reclamation.component';
 import { StatCardComponent } from './stat-card/stat-card.component';
 import { ContenuComponent } from './contenu/contenu.component';
-import { HttpClientModule } from '@angular/common/http';
 import { ReclamationTraiteComponent } from './reclamation-traite/reclamation-traite.component';
 import { ReclationRejeteComponent } from './reclation-rejete/reclation-rejete.component';
 import { ReclamationAttenteComponent } from './reclamation-attente/reclamation-attente.component';
+
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule , ReactiveFormsModule } from '@angular/forms';
+import { RegisterComponent } from './register/register.component';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,12 +33,16 @@ import { ReclamationAttenteComponent } from './reclamation-attente/reclamation-a
     ContenuComponent,
     ReclamationTraiteComponent,
     ReclationRejeteComponent,
-    ReclamationAttenteComponent
+    ReclamationAttenteComponent,
+    RegisterComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule , 
+    ReactiveFormsModule,
+    ToastNoAnimationModule.forRoot(),
   ],
   providers: [],
   bootstrap: [AppComponent]

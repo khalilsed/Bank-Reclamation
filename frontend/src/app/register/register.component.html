@@ -1,0 +1,61 @@
+<div class="wrapper">
+  <div class="container main">
+    <div class="row">
+      <div class="col-md-6 right">
+        <div class="input-box">
+          <h2>Espace d'inscription</h2>
+          <form [formGroup]="registerForm" (ngSubmit)="register()">
+            <div class="input-field">
+              <input
+                formControlName="email"
+                type="email"
+                class="input"
+                id="email"
+                required
+                autocomplete="off"
+              />
+              <label for="email">Email</label>
+              <!-- <div *ngIf="email.touched && email.invalid">
+                    <small *ngIf="email.errors.required" class="text-danger"
+                      >Email is required<br
+                    /></small>
+                    <small *ngIf="email.errors.email" class="text-danger"
+                      >Invalid Email<br
+                    /></small>
+                  </div> -->
+            </div>
+            <div class="input-field">
+              <input
+                formControlName="password"
+                type="password"
+                class="input"
+                id="pass"
+                required
+              />
+              <label for="pass">Mot de passe</label>
+              <!-- <div *ngIf="password.touched && password.invalid">
+                    <small *ngIf="password.errors.required" class="text-danger"
+                      >Password is required<br
+                    /></small>
+                    <small *ngIf="password.errors.minlength" class="text-danger"
+                      >password must contain 6 characters at least</small
+                    >
+                  </div> -->
+            </div>
+          
+            <div class="input-field">
+              <input
+                type="submit"
+                class="submit"
+                value="S'inscrire"
+                [disabled]="registerForm.invalid"
+              />
+            </div>
+          </form>
+        </div>
+      </div>
+      <div class="col-md-6 side-image">
+      </div>
+    </div>
+  </div>
+</div>

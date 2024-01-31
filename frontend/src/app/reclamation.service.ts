@@ -14,6 +14,7 @@ export class ReclamationService {
   private getNbrReclamationRejecteUrl = "http://localhost:3000/Reclamations/countRejected";
   private getReclamationAttenteUrl = "http://localhost:3000/ReclamationsEnAttente";
   private getNbrReclamationAttenteUrl = "http://localhost:3000/Reclamations/countAttente";
+  private updateReclamUrl="http://localhost:3000/update/";
 
 
   constructor(private http: HttpClient) { } 
@@ -59,4 +60,17 @@ export class ReclamationService {
     var header = { headers: new HttpHeaders() }
     return this.http.get<any>(this.getOneReclamationUrl + id)
   }
+
+  // updateReclam(id: string, updatedReclam: any): Observable<any> {
+   // const url = `${this.updateReclamUrl}/${id}`;
+    
+    //return this.http.put<any>(url, updatedReclam);
+  //}
+
+  
+  updateReclam(id: String, reclamation:any){
+    var header = { headers: new HttpHeaders() }
+    return this.http.put<any>(this.updateReclamUrl + id, reclamation);
+  }
+
 }

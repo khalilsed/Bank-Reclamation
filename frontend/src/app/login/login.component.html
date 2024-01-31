@@ -1,1 +1,73 @@
-<p>login works!</p>
+<!-- login.component.html -->
+
+<div class="wrapper">
+  <div class="container main">
+    <div class="row">
+      <div class="col-md-6 side-image">
+        <!-- Image and text here -->
+      </div>
+      <div class="col-md-6 right">
+        <div class="input-box">
+          <h2>Espace de connexion</h2>
+          <form [formGroup]="loginForm" (ngSubmit)="login()">
+            <div class="input-field">
+              <input
+                formControlName="email"
+                type="email"
+                class="input"
+                id="email"
+                required
+                autocomplete="off"
+              />
+              <label for="email">Email</label>
+              <!-- <div *ngIf="email.touched && email.invalid">
+                <small *ngIf="email.errors.required" class="text-danger"
+                  >Email is required<br
+                /></small>
+                <small *ngIf="email.errors.email" class="text-danger"
+                  >Invalid Email<br
+                /></small>
+              </div> -->
+            </div>
+            <div class="input-field">
+              <input
+                formControlName="password"
+                type="password"
+                class="input"
+                id="pass"
+                required
+              />
+              <label for="pass">Mot de passe</label>
+              <!-- <div *ngIf="password.touched && password.invalid">
+                <small *ngIf="password.errors.required" class="text-danger"
+                  >Password is required<br
+                /></small>
+                <small *ngIf="password.errors.minlength" class="text-danger"
+                  >password must contain 6 characters at least</small
+                >
+              </div> -->
+            </div>
+            <!-- <div class="remember">
+                <label><input type="checkbox">Remember Me</label>
+              </div> -->
+            <div class="input-field">
+                <input
+                  type="submit"
+                  class="submit"
+                  value="Se Connecter"
+                  [disabled]="loginForm.invalid"
+                />
+                  <input
+                  type="submit"
+                  class="register"
+                  value="S'inscrire"
+                  [routerLink]="['/register']"
+                  />
+            </div>
+            <!-- [disabled]="loginForm.invalid" [routerLink]="['/home']"-->
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
