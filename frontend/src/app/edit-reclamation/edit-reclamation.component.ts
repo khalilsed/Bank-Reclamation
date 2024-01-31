@@ -21,6 +21,8 @@ export class EditReclamationComponent {
   reclamationOne : Reclam ={};
   updateReclam: FormGroup;
   reclamationId: string = ''; 
+  email: string = ''; 
+  
 
   constructor(private fb: FormBuilder,private reclamationService : ReclamationService, private route : ActivatedRoute, private router: Router,  private toastr: ToastrService) {
     let formControls = {
@@ -59,16 +61,19 @@ export class EditReclamationComponent {
     let idReclam = this.route.snapshot.params['id'] ;
 
     this.reclamationService.getOneReclam(idReclam).subscribe((res)  => {
-      console.log(res);
+      console.log(res,'oneeeeeeeeeeeeeeeeeeeee');
       this.reclamationOne = res;
+      this.email = res.emailClt;
     })
 
   }
 
   updateReclamation() {
     let formData = this.updateReclam.value;
+    
+    
     let idReclam = this.route.snapshot.params['id'] ;
-    let reclamation = new EditReclam (undefined,undefined,undefined,undefined,undefined,undefined,undefined,formData.status,undefined);
+    let reclamation = new EditReclam (undefined,undefined,undefined,this.email,undefined,undefined,undefined,formData.status,undefined);
 
     this.reclamationService.updateReclam(idReclam,reclamation).subscribe(
       res=>{

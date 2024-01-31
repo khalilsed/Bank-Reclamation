@@ -15,7 +15,7 @@ const nodeMailer = async (to, subject, html) => {
   });
 
   const message = {
-    from: '"BNA 👻" tel.kha.andr@gmail.com', // sender address
+    from: '"BNA Bank 🏛️" tel.kha.andr@gmail.com', // sender address
     to: to, // list of receivers
     subject: subject, // Subject line
     html: html, // html body

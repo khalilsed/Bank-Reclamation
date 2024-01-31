@@ -3,9 +3,9 @@ const form = () => {
       <!DOCTYPE html>
         <html>
           <body>
-            <h2>BNA - Edit Reclamation</h2>
+            <h2>Edit Reclamation</h2>
             <p>
-            Your Reclamation was traited ... You can check your account.
+            Your Reclamation was traited ✔️... You can check your account.
             </p>
           </body>
         </html>

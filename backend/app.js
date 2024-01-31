@@ -80,7 +80,7 @@ app.get('/ReclamationsTraite', (req, res) => {
   let treatedReclamations = [];
 
   db.collection('Reclamations')
-    .find({ status: 'T' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .find({ status: 'T' })  
     .forEach(reclam => treatedReclamations.push(reclam))
     .then(() => {
       res.status(200).json(treatedReclamations);
@@ -92,7 +92,7 @@ app.get('/ReclamationsTraite', (req, res) => {
 
 app.get('/Reclamations/countTreated', (req, res) => {
   db.collection('Reclamations')
-    .countDocuments({ status: 'T' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .countDocuments({ status: 'T' })  
     .then(count => {
       res.status(200).json({ count });
     })
@@ -107,7 +107,7 @@ app.get('/ReclamationsEnAttente', (req, res) => {
   let AttenteReclamations = [];
 
   db.collection('Reclamations')
-    .find({ status: 'A' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .find({ status: 'A' })  
     .forEach(reclam => AttenteReclamations.push(reclam))
     .then(() => {
       res.status(200).json(AttenteReclamations);
@@ -119,7 +119,7 @@ app.get('/ReclamationsEnAttente', (req, res) => {
 
 app.get('/Reclamations/countAttente', (req, res) => {
   db.collection('Reclamations')
-    .countDocuments({ status: 'A' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .countDocuments({ status: 'A' })  
     .then(count => {
       res.status(200).json({ count });
     })
@@ -134,7 +134,7 @@ app.get('/ReclamationsRejete', (req, res) => {
   let RejectedReclamations = [];
 
   db.collection('Reclamations')
-    .find({ status: 'R' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .find({ status: 'R' })  
     .forEach(reclam => RejectedReclamations.push(reclam))
     .then(() => {
       res.status(200).json(RejectedReclamations);
@@ -146,7 +146,7 @@ app.get('/ReclamationsRejete', (req, res) => {
 
 app.get('/Reclamations/countRejected', (req, res) => {
   db.collection('Reclamations')
-    .countDocuments({ status: 'R' })  // Assuming 'status' is the field that marks the status of the reclamation
+    .countDocuments({ status: 'R' })  
     .then(count => {
       res.status(200).json({ count });
     })
@@ -189,7 +189,7 @@ app.put('/update/:id', async (req, res) => {
     const result = await db.collection('Reclamations').updateOne({ _id: objectIdReclam }, {
       $set: {
         // 'nomClt': req.body.nomClt,
-        // 'emailClt': req.body.emailClt,
+        'emailClt': req.body.emailClt,
         // 'telClt': req.body.telClt,
         // 'description': req.body.description,
         'status': req.body.status
